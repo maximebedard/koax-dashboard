@@ -1,1 +1,1 @@
-Check out http://shopify.github.com/dashing for more information.
+Dashboard of Koax's game servers actually running

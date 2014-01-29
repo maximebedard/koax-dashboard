@@ -1,16 +1,15 @@
 
-require_relative 'minecraft_query'
+require_relative '../lib/minecraft'
 require 'test/unit'
 require 'pp'
  
 class TestMinecraftQuery < Test::Unit::TestCase
  
-	DEFAULT_HOST = "localhost"
-	DEFAULT_PORT = 25566
+	DEFAULT_HOST = "70.83.22.14"
+	DEFAULT_PORT = 25565
 
   def test_get_status
-    query = MinecraftQuery.new DEFAULT_HOST, DEFAULT_PORT
-    status = query.get_status
+    status = DashboardQueries::Minecraft.new(DEFAULT_HOST, DEFAULT_PORT).get_status
 
     assert_equal("A Minecraft Server", status[:motd])
     assert_equal("SMP", status[:gametype])
@@ -20,8 +19,8 @@ class TestMinecraftQuery < Test::Unit::TestCase
   end
 
   def test_get_server_info
-  	query = MinecraftQuery.new DEFAULT_HOST, DEFAULT_PORT
-  	query.get_server_info
+  	server_info = DashboardQueries::Minecraft.new(DEFAULT_HOST, DEFAULT_PORT).get_server_info
+  	
   end
  
 end

@@ -29,7 +29,7 @@ SCHEDULER.every '5s', :first_in => 0 do |job|
   rescue StandardError => e
   	@logger.error(e)
   	send_event('status', { image: '/minecraft_offline.png' })
-    send_event('ping' { text: "Server Offline"})
+    send_event('ping', { text: "Server Offline"})
   end
 
 end
